@@ -2,13 +2,13 @@ version: "3"
 
 services:
   io.swagger:
-    container_name: home-web-ir
-    image: josemottalopes/home-web-ir
+    container_name: home-srv
+    image: josemottalopes/home-srv
     build:
       context: .
-      dockerfile: Lirc/lumi.Dockerfile
+      dockerfile: Lirc/lirc.Dockerfile
     ports:
-    - "5010:5010"
+    - "5000:5000"
     network_mode: bridge
     privileged: true
     restart: always
@@ -18,11 +18,11 @@ services:
       - ASPNETCORE_ENVIRONMENT=Release
 
   home.ui:
-    container_name: home-ui
-    image: josemottalopes/home-ui
+    container_name: home-cli
+    image: josemottalopes/home-cli
     build:
       context: .
-      dockerfile: src/Home.UI/pi.Dockerfile
+      dockerfile: src/Home.UI/ui.Dockerfile
     ports:
     - "80:80"
     network_mode: bridge
@@ -32,7 +32,7 @@ services:
  
   ssl.proxy:
     container_name: ssl-proxy
-    image: josemottalopes/nginx-proxy
+    image: josemottalopes/home-ssl
     build:
       context: .
       dockerfile: Proxy/proxy.Dockerfile

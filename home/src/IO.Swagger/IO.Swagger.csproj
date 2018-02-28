@@ -37,4 +37,11 @@
   </ItemGroup>
 
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Raspberry.IO.Components\Raspberry.IO.Components.csproj" />
+    <ProjectReference Include="..\..\Raspberry.IO.GeneralPurpose\Raspberry.IO.GeneralPurpose.csproj" />
+    <ProjectReference Include="..\..\Raspberry.System\Raspberry.System.csproj" />
+  </ItemGroup>
+
+
 </Project>

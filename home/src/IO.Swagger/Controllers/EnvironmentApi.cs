@@ -36,6 +36,10 @@ using IO.Swagger.Attributes;
 using IO.Swagger.Models;
 using System.IO;
 
+using Raspberry.IO.Components.Sensors.Distance.HcSr04;
+using Raspberry.IO.GeneralPurpose;
+using Raspberry.Timers;
+
 namespace IO.Swagger.Controllers
 { 
     /// <summary>
@@ -76,19 +80,54 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("GetHeaterState")]
         [SwaggerResponse(200, typeof(HeaterState), "heater state")]
         public virtual IActionResult GetHeaterState([FromRoute]string zoneId)
-        { 
-            string exampleJson = null;
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<HeaterState>(exampleJson)
-            : default(HeaterState);
-            return new ObjectResult(example);
+        {
+            //string exampleJson = null;
+
+            const ConnectorPin triggerPin = ConnectorPin.P1Pin38;
+            const ConnectorPin echoPin = ConnectorPin.P1Pin40;
+
+            double distance = 0;
+            string state = null;
+
+            //Console.WriteLine("HC-SR04 Sample: measure distance");
+            //Console.WriteLine();
+            //Console.WriteLine("\tTrigger: {0}", triggerPin);
+            //Console.WriteLine("\tEcho: {0}", echoPin);
+            //Console.WriteLine();
+
+            var driver = GpioConnectionSettings.DefaultDriver;
+
+            using (var connection = new HcSr04Connection(
+                driver.Out(triggerPin.ToProcessor()),
+                driver.In(echoPin.ToProcessor())))
+
+                try
+                {
+                    distance = connection.GetDistance().Centimeters;
+                    //Console.WriteLine(string.Format("{0:0.0}cm", distance).PadRight(16));
+                    //Console.CursorTop--;
+                }
+                catch (TimeoutException e)
+                {
+                    state = "Timeout: " + e.Message;
+                }
+
+            if (state == null) state = string.Format("{0:0.0} cm", distance);
+
+            HeaterState hs = new HeaterState
+            {
+                Id = zoneId,
+                State = state
+            };
+
+            var hs_state = hs ?? default(HeaterState);
+            return new ObjectResult(hs_state);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        
+
         /// <param name="zoneId"></param>
         /// <response code="200">Zone temperature</response>
         [HttpGet]

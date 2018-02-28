@@ -11,8 +11,8 @@
   <ItemGroup>
     <None Include="Proxy\setup\cert.pem" />
     <None Include="Proxy\setup\key.pem" />
-    <None Include="lumi-compose.yml" />
-    <None Include="Lirc\lumi.dockerfile" />
+    <None Include="home-compose.yml" />
+    <None Include="Lirc\lirc.dockerfile" />
     <None Include="Lirc\remotes\lirc24.conf" />
     <None Include="Lirc\remotes\lirc44.conf" />
     <None Include="Lirc\remotes\Samsung_BN59-00678A.conf" />
@@ -20,7 +20,6 @@
     <None Include="Lirc\setup\ir-remote.conf" />
     <None Include="Lirc\setup\lirc_options.conf" />
     <None Include="Proxy\setup\proxy.conf" />
-    <None Include="thing-compose.yml" />
     <None Include="docker-compose.yml" />
     <None Include="Proxy\proxy.Dockerfile" />
   </ItemGroup>

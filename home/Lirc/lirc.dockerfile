@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:2.0.0-runtime-stretch-arm32v7 AS base
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
-ENV ASPNETCORE_URLS "http://*:5010"
+ENV ASPNETCORE_URLS "http://*:5000"
 WORKDIR /app
 
 RUN \
@@ -22,7 +22,7 @@ COPY Lirc/remotes /etc/lirc/lircd.conf.d
 
 FROM microsoft/dotnet:2.0-sdk AS build
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
-ENV ASPNETCORE_URLS "http://*:5010"
+ENV ASPNETCORE_URLS "http://*:5000"
 WORKDIR /src
 COPY *.sln ./
 COPY *.dcproj ./
