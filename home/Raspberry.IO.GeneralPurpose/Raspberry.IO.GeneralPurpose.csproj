@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Raspberry.IO.Interop\Raspberry.IO.Interop.csproj" />
+    <ProjectReference Include="..\Raspberry.IO\Raspberry.IO.csproj" />
+    <ProjectReference Include="..\Raspberry.System\Raspberry.System.csproj" />
+  </ItemGroup>
+
+</Project>
