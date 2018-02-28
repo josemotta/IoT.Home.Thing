@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectVersion>2.0</ProjectVersion>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <ProjectGuid>ce5bbe41-b2fd-431f-be06-98504fe33f4e</ProjectGuid>
+    <DockerLaunchBrowser>True</DockerLaunchBrowser>
+    <DockerServiceUrl>http://localhost:{ServicePort}</DockerServiceUrl>
+    <DockerServiceName>io.swagger</DockerServiceName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Proxy\setup\cert.pem" />
+    <None Include="Proxy\setup\key.pem" />
+    <None Include="lumi-compose.yml" />
+    <None Include="Lirc\lumi.dockerfile" />
+    <None Include="Lirc\remotes\lirc24.conf" />
+    <None Include="Lirc\remotes\lirc44.conf" />
+    <None Include="Lirc\remotes\Samsung_BN59-00678A.conf" />
+    <None Include="Lirc\setup\config.txt" />
+    <None Include="Lirc\setup\ir-remote.conf" />
+    <None Include="Lirc\setup\lirc_options.conf" />
+    <None Include="Proxy\setup\proxy.conf" />
+    <None Include="thing-compose.yml" />
+    <None Include="docker-compose.yml" />
+    <None Include="Proxy\proxy.Dockerfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+    <Folder Include="Proxy\NewFolder1\" />
+    <Folder Include="Proxy\NewFolder\" />
+  </ItemGroup>
+</Project>
