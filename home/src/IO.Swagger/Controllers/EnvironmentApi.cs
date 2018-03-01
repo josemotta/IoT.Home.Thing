@@ -35,7 +35,6 @@ using Newtonsoft.Json;
 using IO.Swagger.Attributes;
 using IO.Swagger.Models;
 using System.IO;
-
 using Raspberry.IO.Components.Sensors.Distance.HcSr04;
 using Raspberry.IO.GeneralPurpose;
 using Raspberry.Timers;
@@ -89,11 +88,11 @@ namespace IO.Swagger.Controllers
             double distance = 0;
             string state = null;
 
-            //Console.WriteLine("HC-SR04 Sample: measure distance");
-            //Console.WriteLine();
-            //Console.WriteLine("\tTrigger: {0}", triggerPin);
-            //Console.WriteLine("\tEcho: {0}", echoPin);
-            //Console.WriteLine();
+            Console.WriteLine("HC-SR04 Sample: measure distance");
+            Console.WriteLine();
+            Console.WriteLine("\tTrigger: {0}", triggerPin);
+            Console.WriteLine("\tEcho: {0}", echoPin);
+            Console.WriteLine();
 
             var driver = GpioConnectionSettings.DefaultDriver;
 
@@ -104,7 +103,7 @@ namespace IO.Swagger.Controllers
                 try
                 {
                     distance = connection.GetDistance().Centimeters;
-                    //Console.WriteLine(string.Format("{0:0.0}cm", distance).PadRight(16));
+                    Console.WriteLine(string.Format("{0:0.0}cm", distance).PadRight(16));
                     //Console.CursorTop--;
                 }
                 catch (TimeoutException e)

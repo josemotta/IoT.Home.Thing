@@ -22,6 +22,7 @@
     <None Include="Proxy\setup\proxy.conf" />
     <None Include="docker-compose.yml" />
     <None Include="Proxy\proxy.Dockerfile" />
+    <None Include="Raspberry.IO\AppConfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolder\" />

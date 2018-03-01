@@ -86,7 +86,7 @@ namespace Raspberry.IO.Components.Sensors.Distance.HcSr04
             for (int i = 1; i < 100; i++)
             {
                 triggerPin.Write(true);
-                Timer.Sleep(TimeSpan.FromMilliseconds(10));
+                Timer.Sleep(TimeSpan.FromMilliseconds(5));
                 triggerPin.Write(false);
                 Timer.Sleep(TimeSpan.FromMilliseconds(5));
             }

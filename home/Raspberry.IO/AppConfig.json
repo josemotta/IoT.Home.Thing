@@ -1,0 +1,7 @@
+{
+  "gpioConnection": {
+    "boardConnectorRevision": "3",
+    "driver": "GpioConnectionDriver",
+    "pollInterval": "100"
+  }
+}
