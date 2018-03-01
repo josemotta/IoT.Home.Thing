@@ -83,13 +83,13 @@ namespace Raspberry.IO.Components.Sensors.Distance.HcSr04
         /// <returns>The distance.</returns>
         public Length GetDistance()
         {
-            for (int i = 1; i < 100; i++)
-            {
-                triggerPin.Write(true);
-                Timer.Sleep(TimeSpan.FromMilliseconds(5));
-                triggerPin.Write(false);
-                Timer.Sleep(TimeSpan.FromMilliseconds(5));
-            }
+            //for (int i = 1; i < 100; i++)
+            //{
+            //    triggerPin.Write(true);
+            //    Timer.Sleep(TimeSpan.FromMilliseconds(5));
+            //    triggerPin.Write(false);
+            //    Timer.Sleep(TimeSpan.FromMilliseconds(5));
+            //}
 
             triggerPin.Write(true);
             Timer.Sleep(triggerTime);

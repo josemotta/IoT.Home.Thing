@@ -88,11 +88,9 @@ namespace IO.Swagger.Controllers
             double distance = 0;
             string state = null;
 
-            Console.WriteLine("HC-SR04 Sample: measure distance");
-            Console.WriteLine();
-            Console.WriteLine("\tTrigger: {0}", triggerPin);
-            Console.WriteLine("\tEcho: {0}", echoPin);
-            Console.WriteLine();
+            Console.WriteLine("info: HC-SR04 distance measure");
+            Console.WriteLine("      Trigger: {0}", triggerPin);
+            Console.WriteLine("      Echo: {0}", echoPin);
 
             var driver = GpioConnectionSettings.DefaultDriver;
 
