@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.0.0-runtime-stretch-arm32v7 AS base
+FROM microsoft/dotnet:2.1.0-preview1-runtime-stretch-slim-arm32v7 AS base
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 ENV ASPNETCORE_URLS "http://*:5000"
 WORKDIR /app
@@ -21,7 +21,7 @@ COPY Lirc/setup/ir-remote.conf /etc/modprobe.d/ir-remote.conf
 COPY Lirc/remotes /etc/lirc/lircd.conf.d
 COPY Raspberry.IO/AppConfig.json /app
 
-FROM microsoft/dotnet:2.0-sdk AS build
+FROM microsoft/dotnet:2.1-sdk AS build
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 ENV ASPNETCORE_URLS "http://*:5000"
 WORKDIR /src
