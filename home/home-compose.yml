@@ -6,7 +6,7 @@ services:
     image: josemottalopes/home-srv
     build:
       context: .
-      dockerfile: Lirc/lirc.Dockerfile
+      dockerfile: Lirc/srv.Dockerfile
     ports:
     - "5000:5000"
     network_mode: bridge
@@ -24,7 +24,7 @@ services:
     image: josemottalopes/home-cli
     build:
       context: .
-      dockerfile: src/Home.UI/ui.Dockerfile
+      dockerfile: src/Home.UI/cli.Dockerfile
     ports:
     - "80:80"
     network_mode: bridge
