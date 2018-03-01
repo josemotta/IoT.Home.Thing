@@ -1,12 +1,12 @@
 FROM microsoft/aspnetcore:2.0 AS base
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
-ENV ASPNETCORE_URLS "http://*:5010"
+ENV ASPNETCORE_URLS "http://*:5000"
 WORKDIR /app
 EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
-ENV ASPNETCORE_URLS "http://*:5010"
+ENV ASPNETCORE_URLS "http://*:5000"
 WORKDIR /src
 COPY *.sln ./
 COPY *.dcproj ./
