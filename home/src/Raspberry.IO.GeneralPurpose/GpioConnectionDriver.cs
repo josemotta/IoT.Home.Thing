@@ -291,6 +291,11 @@ namespace Raspberry.IO.GeneralPurpose
                 case Processor.Bcm2709:
                     return Interop.BCM2836_GPIO_BASE;
 
+                // Support for RPi3/BCM2835 on Raspbian 4.9
+                // https://github.com/raspberry-sharp/raspberry-sharp-io/issues/88
+                case Processor.Bcm2835:
+                    return Interop.BCM2836_GPIO_BASE;
+
                 default:
                     throw new ArgumentOutOfRangeException("processor");
             }

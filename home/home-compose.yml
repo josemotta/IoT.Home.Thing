@@ -13,7 +13,7 @@ services:
     privileged: true
     restart: always
     devices:
-      - /dev/gpiomem:/dev/gpiomem
+      - /dev/mem:/dev/mem
     volumes:
     - /var/run/lirc:/var/run/lirc
     environment:

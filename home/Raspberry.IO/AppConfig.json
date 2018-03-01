@@ -1,7 +1,7 @@
 {
   "gpioConnection": {
     "boardConnectorRevision": "3",
-    "driver": "GpioConnectionDriver",
+    //"driver": "Raspberry.IO.GeneralPurpose.IGpioConnectionDriver",
     "pollInterval": "100"
   }
 }
