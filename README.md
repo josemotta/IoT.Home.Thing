@@ -16,6 +16,6 @@ After building IoT embryos at [IoT.Starter.Pi.Thing](https://github.com/josemott
 
 ## Build
 
-The [`IoT.Starter.Pi.Thing`](https://github.com/josemotta/IoT.Starter.Pi.Thing) is used as a starter, IoT.Home.Thing is 
+Following the workflow the [`IoT.Starter.Pi.Thing`](https://github.com/josemotta/IoT.Starter.Pi.Thing) is used as a starter for `IoT.Home.Thing`. 
 
 *Did you like? Please :star: me!*
