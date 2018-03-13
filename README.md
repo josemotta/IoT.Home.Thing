@@ -70,8 +70,8 @@ Support for RPi3/BCM2835 was added, based on this [post](https://github.com/rasp
 
 - **Raspberry.System**: include definitions for processor, board, models, etc.;
 - **Raspberry.IO**: inludes basic I/O for input & output of digital & analog pins;
-- **Raspberry.IO.GeneralPurpose**: access Raspberry Pi GPIO pins through memory with support for edge detection, allowing sub-millisecond polling of input pins;
 - **Raspberry.IO.Interop**: Linux I/O control device and memory management;
+- **Raspberry.IO.GeneralPurpose**: access Raspberry Pi GPIO pins through memory with support for edge detection, allowing sub-millisecond polling of input pins;
 - **Raspberry.IO.SerialPeripheralInterface**: provides preliminary support for SPI,  using Linux's kernel SPI module driver;
 - **Raspberry.IO.InterIntegratedCircuit**: provides preliminary support for I2C;
 - **Raspberry.IO.Components**: provides preliminary support for various components, including HC-SR04 distance detector that will be used as an example.
