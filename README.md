@@ -15,7 +15,7 @@ After building IoT embryos at [IoT.Starter.Pi.Thing](https://github.com/josemott
 
 Please check [IoT.Starter.Pi.Thing](https://github.com/josemotta/IoT.Starter.Pi.Thing) for more details about previous developments.
 
-## Creating a new repository for `IoT.Home.Thing`
+## Creating a new repository
 
 This is an opportunity to use [`IoT.Starter.Pi.Thing`](https://github.com/josemotta/IoT.Starter.Pi.Thing) as a starter for this new project. The first step is just copying the whole  source code as a starter for `IoT.Home.Thing`. Then, `home-compose.yml` is created, based on previous files as follows:
 
