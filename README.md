@@ -76,6 +76,89 @@ Support for RPi3/BCM2835 was added, based on this [post](https://github.com/rasp
 - **Raspberry.IO.InterIntegratedCircuit**: provides preliminary support for I2C;
 - **Raspberry.IO.Components**: provides preliminary support for various components, including HC-SR04 distance detector that will be used as an example.
 
+## Distance meter with HC-SR04
+
+
+The [HC-SR04](http://www.micropik.com/PDF/HCSR04.pdf) is a Ultrasonic module that provides non-contact measurement function ranging distances from 2 to 400 cm. As shown at photo below, it has four pins:
+
+- Vcc and Ground
+- Trigger pulse input
+- Echo pulse output
+
+![](https://i.imgur.com/AaAC7GV.jpg)
+
+As show at the timing diagram, the basic principle of work is:
+
+- Issue at least 10 us (microseconds) high level pulse at trigger input;
+- The module automatically sends eight 40 kHz sound waves;
+- The module detect whether there is a signal back and raise the echo output pin for the time the sound takes to leave and return to sensor.
+- The distance from sensor to obstacle is then calculated knowing that velocity of sound is 340 m/s.
+
+![](https://i.imgur.com/Cfk7LhM.png)
+
+Just for demo purposes, the HC-SR04 is connected to GPIO pins:
+
+- Trigger pulse input is connected to GPIO20, connector pin 38.
+- Echo pulse output is connected to GPIO21, connector pin 40.
+
+Then the `GetHeaterState` code is tweaked to use HC-SR04 distance detector from Raspberry#IO library.
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>gets the state of the heater</remarks>
+        /// <param name="zoneId"></param>
+        /// <response code="200">heater state</response>
+        [HttpGet]
+        [Route("/motta/home/1.0.1/temperature/{zoneId}/heater")]
+        [ValidateModelState]
+        [SwaggerOperation("GetHeaterState")]
+        [SwaggerResponse(200, typeof(HeaterState), "heater state")]
+        public virtual IActionResult GetHeaterState([FromRoute]string zoneId)
+        {
+            //string exampleJson = null;
+
+            const ConnectorPin triggerPin = ConnectorPin.P1Pin38;
+            const ConnectorPin echoPin = ConnectorPin.P1Pin40;
+
+            double distance = 0;
+            string state = null;
+
+            Console.WriteLine("info: HC-SR04 distance measure");
+            Console.WriteLine("      Trigger: {0}", triggerPin);
+            Console.WriteLine("      Echo: {0}", echoPin);
+
+            var driver = GpioConnectionSettings.DefaultDriver;
+
+            using (var connection = new HcSr04Connection(
+                driver.Out(triggerPin.ToProcessor()),
+                driver.In(echoPin.ToProcessor())))
+
+                try
+                {
+                    distance = connection.GetDistance().Centimeters;
+                    Console.WriteLine(string.Format("{0:0.0}cm", distance).PadRight(16));
+                    //Console.CursorTop--;
+                }
+                catch (TimeoutException e)
+                {
+                    state = "Timeout: " + e.Message;
+                }
+
+            if (state == null) state = string.Format("{0:0.0} cm", distance);
+
+            HeaterState hs = new HeaterState
+            {
+                Id = zoneId,
+                State = state
+            };
+
+            var hs_state = hs ?? default(HeaterState);
+            return new ObjectResult(hs_state);
+        }
+
+![](https://i.imgur.com/LhjmNpn.png)
+
 
 
 *Did you like it? Please give me a :star:!*
