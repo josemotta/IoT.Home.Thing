@@ -75,8 +75,7 @@ The following modules are available, as you can check at [home/src](https://gith
 - **Raspberry.IO.SerialPeripheralInterface**: provides preliminary support for SPI,  using Linux's kernel SPI module driver;
 - **Raspberry.IO.InterIntegratedCircuit**: provides preliminary support for I2C;
 - **Raspberry.IO.Components**: provides preliminary support for various components, including HC-SR04 distance detector that will be used as an example.
-- 
 
 
 
-*Did you like? Please :star: me!*
+*Did you like it? Please give me a :star:!*
