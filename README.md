@@ -66,7 +66,7 @@ This is an opportunity to apply the [`IoT.Starter.Pi.Thing`](https://github.com/
 
 The current [Raspberry# IO](https://github.com/raspberry-sharp/raspberry-sharp-io) is a .NET/Mono IO Library for Raspberry Pi, an initiative of the [Raspberry# Community](http://www.raspberry-sharp.org/). It was [updated](https://github.com/Ramon-Balaguer/raspberry-sharp-io) to .Net Standard 1.6 compatibility by Ramon Balaguer. Since our final target is RPI projects with .NET Core 2, the code was upgraded again, now to [.NET Core 2.1 Preview 1](https://blogs.msdn.microsoft.com/dotnet/2018/02/27/announcing-net-core-2-1-preview-1/).
 
-Only library is upgraded,  the tests were not included at this time. The following modules are available, as you can check at [home/src](https://github.com/josemotta/IoT.Home.Thing/tree/master/home/src).
+The following modules are available, as you can check at [home/src](https://github.com/josemotta/IoT.Home.Thing/tree/master/home/src). The tests were not included at this time. 
 
 - **Raspberry.System**: include definitions for processor, board, models, etc. Pleae note that support for RPi3/BCM2835 was added, based on this [post](https://github.com/raspberry-sharp/raspberry-sharp-io/issues/88) from Michaltalaga;
 - **Raspberry.IO**: inludes basic I/O for input & output of digital & analog pins;
