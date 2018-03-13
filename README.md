@@ -157,6 +157,8 @@ Then the `GetHeaterState` code is tweaked to use HC-SR04 distance detector from 
             return new ObjectResult(hs_state);
         }
 
+The results can be seen using Swagger UI, as shown below:
+
 ![](https://i.imgur.com/LhjmNpn.png)
 
 
