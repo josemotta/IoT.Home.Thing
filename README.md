@@ -116,8 +116,6 @@ Then the `GetHeaterState` code is tweaked to use HC-SR04 distance detector from 
         [SwaggerResponse(200, typeof(HeaterState), "heater state")]
         public virtual IActionResult GetHeaterState([FromRoute]string zoneId)
         {
-            //string exampleJson = null;
-
             const ConnectorPin triggerPin = ConnectorPin.P1Pin38;
             const ConnectorPin echoPin = ConnectorPin.P1Pin40;
 
