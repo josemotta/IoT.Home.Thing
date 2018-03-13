@@ -161,4 +161,6 @@ The results can be finally obtained using Swagger UI, as shown below:
 
 The `IoT.Home.Thing` is now equipped with great software to improve Home Intelligence projects.
 
+Have fun!
+
 *Did you like it? Please give me a :star:!*
