@@ -66,9 +66,9 @@ This is an opportunity to apply the [`IoT.Starter.Pi.Thing`](https://github.com/
 
 The current [Raspberry# IO](https://github.com/raspberry-sharp/raspberry-sharp-io) is a .NET/Mono IO Library for Raspberry Pi, an initiative of the [Raspberry# Community](http://www.raspberry-sharp.org/). It was [updated](https://github.com/Ramon-Balaguer/raspberry-sharp-io) to .Net Standard 1.6 compatibility by Ramon Balaguer. Targeting RPI projects with .NET Core 2, the  same library code was upgraded again, now to [.NET Core 2.1 Preview 1](https://blogs.msdn.microsoft.com/dotnet/2018/02/27/announcing-net-core-2-1-preview-1/).
 
-The following modules are available, as you can check at [home/src](https://github.com/josemotta/IoT.Home.Thing/tree/master/home/src), the tests were not included at this time. 
+Support for RPi3/BCM2835 was added, based on this [post](https://github.com/raspberry-sharp/raspberry-sharp-io/issues/88) from Michaltalaga. The following modules are available, as you can check at [home/src](https://github.com/josemotta/IoT.Home.Thing/tree/master/home/src), the tests were not included at this time. 
 
-- **Raspberry.System**: include definitions for processor, board, models, etc. Support for RPi3/BCM2835 was added, based on this [post](https://github.com/raspberry-sharp/raspberry-sharp-io/issues/88) from Michaltalaga;
+- **Raspberry.System**: include definitions for processor, board, models, etc.;
 - **Raspberry.IO**: inludes basic I/O for input & output of digital & analog pins;
 - **Raspberry.IO.GeneralPurpose**: access Raspberry Pi GPIO pins through memory with support for edge detection, allowing sub-millisecond polling of input pins;
 - **Raspberry.IO.Interop**: Linux I/O control device and memory management;
