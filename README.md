@@ -155,10 +155,10 @@ Then the `GetHeaterState` code is tweaked to use HC-SR04 distance detector from 
             return new ObjectResult(hs_state);
         }
 
-The results can be seen using Swagger UI, as shown below:
+The results can be finally obtained using Swagger UI, as shown below:
 
 ![](https://i.imgur.com/LhjmNpn.png)
 
-
+The `IoT.Home.Thing` is now equipped with great software to improve Home Intelligence projects.
 
 *Did you like it? Please give me a :star:!*
