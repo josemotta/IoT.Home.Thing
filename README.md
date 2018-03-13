@@ -13,6 +13,8 @@ After building IoT embryos at [IoT.Starter.Pi.Thing](https://github.com/josemott
 - **Docker**: A multi-stage docker image build is accomplished at a speedy Windows x64 machine, generating code of linux-arm framework. The images are pushed to the cloud and then pulled back into the Raspberry Pi with Linux. Executed at both x64 and linux-arm sides, the docker-compose command helps to build, deploy and run containers properly.
 - **Lirc**: IoT.Home.Thing, powered by [RemoteAPI](https://app.swaggerhub.com/apis/motta/home/1.0.2#/Remote), emulates legacy infrared remote controls. The Linux Infrared Remote Control for Raspberry Pi is installed at both RPI host and `home-srv` container, extending the `Thing` with IR remotes and their respective IR codes.
 
+Please check [IoT.Starter.Pi.Thing](https://github.com/josemotta/IoT.Starter.Pi.Thing) for more details about previous developments.
+
 ## Creating a new repository for `IoT.Home.Thing`
 
 This is an opportunity to use [`IoT.Starter.Pi.Thing`](https://github.com/josemotta/IoT.Starter.Pi.Thing) as a starter for this new project. The first step is just copying the whole  source code as a starter for `IoT.Home.Thing`. Then, `home-compose.yml` is created, based on previous files as follows:
