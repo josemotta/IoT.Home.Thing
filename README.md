@@ -68,7 +68,7 @@ The current [Raspberry# IO](https://github.com/raspberry-sharp/raspberry-sharp-i
 
 The following modules are available, as you can check at [home/src](https://github.com/josemotta/IoT.Home.Thing/tree/master/home/src), the tests were not included at this time. 
 
-- **Raspberry.System**: include definitions for processor, board, models, etc. Pleae note that support for RPi3/BCM2835 was added, based on this [post](https://github.com/raspberry-sharp/raspberry-sharp-io/issues/88) from Michaltalaga;
+- **Raspberry.System**: include definitions for processor, board, models, etc. Support for RPi3/BCM2835 was added, based on this [post](https://github.com/raspberry-sharp/raspberry-sharp-io/issues/88) from Michaltalaga;
 - **Raspberry.IO**: inludes basic I/O for input & output of digital & analog pins;
 - **Raspberry.IO.GeneralPurpose**: access Raspberry Pi GPIO pins through memory with support for edge detection, allowing sub-millisecond polling of input pins;
 - Raspberry.IO.Interop
