@@ -12,5 +12,5 @@ This project is being designed to be used itself  as a IoT Starter for Home Inte
 - based on Raspberry Pi with Linux;
 - need a software library that includes I/O for input & output of digital & analog pins and support for various hardware components;
 - explore docker containers built on speedy machines, pushed to cloud, and  deployed to linux-arm.
-- 
+
 
