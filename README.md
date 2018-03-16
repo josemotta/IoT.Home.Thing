@@ -71,7 +71,7 @@ The current [Raspberry# IO](https://github.com/raspberry-sharp/raspberry-sharp-i
 Support for RPi3/BCM2835 was added, based on this [post](https://github.com/raspberry-sharp/raspberry-sharp-io/issues/88) from Michaltalaga. The following modules are available, as you can check at [home/src](https://github.com/josemotta/IoT.Home.Thing/tree/master/home/src). The tests were not included. 
 
 - **Raspberry.System**: include definitions for processor, board, models, etc.;
-- **Raspberry.IO**: inludes basic I/O for input & output of digital & analog pins;
+- **Raspberry.IO**: includes basic I/O for input & output of digital & analog pins;
 - **Raspberry.IO.Interop**: Linux I/O control device and memory management;
 - **Raspberry.IO.GeneralPurpose**: access Raspberry Pi GPIO pins through memory with support for edge detection, allowing sub-millisecond polling of input pins;
 - **Raspberry.IO.SerialPeripheralInterface**: provides preliminary support for SPI,  using Linux's kernel SPI module driver;
