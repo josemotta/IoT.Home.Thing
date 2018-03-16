@@ -89,7 +89,7 @@ The [HC-SR04](http://www.micropik.com/PDF/HCSR04.pdf) is a Ultrasonic module tha
 
 ![](https://i.imgur.com/AaAC7GV.jpg)
 
-As show at the timing diagram, the basic principle of work is:
+As shown at the timing diagram, the basic principle of work is:
 
 - Issue at least 10 us (microseconds) high level pulse at trigger input;
 - The module automatically sends eight 40 kHz sound waves;
