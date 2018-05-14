@@ -34,22 +34,28 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// the act contains scenes
     /// </summary>
     [DataContract]
-    public partial class ForecastResponse :  IEquatable<ForecastResponse>
+    public partial class Act :  IEquatable<Act>
     { 
         /// <summary>
-        /// Gets or Sets City
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="city")]
-        public City City { get; set; }
+        [DataMember(Name="id")]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Values
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="values")]
-        public List<Forecast> Values { get; set; }
+        [DataMember(Name="name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Scenes
+        /// </summary>
+        [DataMember(Name="scenes")]
+        public List<Scene> Scenes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +64,10 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ForecastResponse {\n");
-            sb.Append("  City: ").Append(City).Append("\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("class Act {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Scenes: ").Append(Scenes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +90,34 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ForecastResponse)obj);
+            return obj.GetType() == GetType() && Equals((Act)obj);
         }
 
         /// <summary>
-        /// Returns true if ForecastResponse instances are equal
+        /// Returns true if Act instances are equal
         /// </summary>
-        /// <param name="other">Instance of ForecastResponse to be compared</param>
+        /// <param name="other">Instance of Act to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ForecastResponse other)
+        public bool Equals(Act other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    City == other.City ||
-                    City != null &&
-                    City.Equals(other.City)
+                    Id == other.Id ||
+                    Id != null &&
+                    Id.Equals(other.Id)
                 ) && 
                 (
-                    Values == other.Values ||
-                    Values != null &&
-                    Values.SequenceEqual(other.Values)
+                    Name == other.Name ||
+                    Name != null &&
+                    Name.Equals(other.Name)
+                ) && 
+                (
+                    Scenes == other.Scenes ||
+                    Scenes != null &&
+                    Scenes.SequenceEqual(other.Scenes)
                 );
         }
 
@@ -119,10 +131,12 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (City != null)
-                    hashCode = hashCode * 59 + City.GetHashCode();
-                    if (Values != null)
-                    hashCode = hashCode * 59 + Values.GetHashCode();
+                    if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                    if (Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+                    if (Scenes != null)
+                    hashCode = hashCode * 59 + Scenes.GetHashCode();
                 return hashCode;
             }
         }
@@ -130,12 +144,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(ForecastResponse left, ForecastResponse right)
+        public static bool operator ==(Act left, Act right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ForecastResponse left, ForecastResponse right)
+        public static bool operator !=(Act left, Act right)
         {
             return !Equals(left, right);
         }
