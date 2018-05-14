@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  clima:
+    container_name: clima-srv
+    image: josemottalopes/clima
+    build:
+      context: .
+      dockerfile: Lirc/srv.Dockerfile
+    ports:
+    - "5000:5000"
+    network_mode: bridge
+    privileged: true
+    restart: always
+    devices:
+      - /dev/mem:/dev/mem
+    volumes:
+    - /var/run/lirc:/var/run/lirc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release

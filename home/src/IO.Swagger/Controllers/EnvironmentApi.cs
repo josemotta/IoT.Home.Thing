@@ -34,6 +34,8 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using IO.Swagger.Attributes;
 using IO.Swagger.Models;
+using Raspberry.IO.InterIntegratedCircuit;
+using Raspberry.IO.Components.Sensors.Pressure.Bmp180;
 
 namespace IO.Swagger.Controllers
 { 
@@ -96,12 +98,27 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("GetZoneTemperature")]
         [SwaggerResponse(200, typeof(TemperatureZoneStatus), "Zone temperature")]
         public virtual IActionResult GetZoneTemperature([FromRoute]string zoneId)
-        { 
-            string exampleJson = null;
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<TemperatureZoneStatus>(exampleJson)
-            : default(TemperatureZoneStatus);
+        {
+            TemperatureZoneStatus tzs = null;
+
+            I2cDriver driver = new I2cDriver(Raspberry.IO.GeneralPurpose.ProcessorPin.Pin02, Raspberry.IO.GeneralPurpose.ProcessorPin.Pin03);
+
+            if (driver != null)
+            {
+                BMP180PressureTempSensor sensor = new BMP180PressureTempSensor(driver, 0x77, BMP085Mode.UltraHighRes);
+
+                tzs = new TemperatureZoneStatus
+                {
+                    Id = zoneId,
+                    Name = "BMP180",
+                    TemperatureValue = sensor.ReadTemperature(),
+                    PressureValue = sensor.ReadPressure(),
+                    Units = TemperatureZoneStatus.UnitsEnum.CelsiusEnum,
+                    Timestamp = DateTime.Now
+                };
+            }
+                        
+            var example = tzs ?? default(TemperatureZoneStatus);
             return new ObjectResult(example);
         }
 
