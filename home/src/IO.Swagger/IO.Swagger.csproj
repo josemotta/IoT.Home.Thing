@@ -31,12 +31,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0" />
-  </ItemGroup>
-
-
   <ItemGroup>
     <ProjectReference Include="..\Raspberry.IO.Components\Raspberry.IO.Components.csproj" />
     <ProjectReference Include="..\Raspberry.IO.GeneralPurpose\Raspberry.IO.GeneralPurpose.csproj" />

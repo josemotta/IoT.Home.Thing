@@ -9,6 +9,7 @@
     <DockerServiceName>io.swagger</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="home-compose.yml" />
     <None Include="Proxy\setup\cert.pem" />
     <None Include="Proxy\setup\key.pem" />
     <None Include="clima.yml" />
