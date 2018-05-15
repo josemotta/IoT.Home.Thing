@@ -7,8 +7,8 @@ using System.Text;
 
 namespace Raspberry.IO.Components.Sensors.Light
 {
-    namespace RPI.Sensor.Sensors.Light
-    {
+    //namespace RPI.Sensor.Sensors.Light
+    //{
         public class BH1750Connection
         {
             public I2cDeviceConnection Connection { get; set; }
@@ -48,6 +48,6 @@ namespace Raspberry.IO.Components.Sensors.Light
             }
 
         }
-    }
+    //}
 
 }

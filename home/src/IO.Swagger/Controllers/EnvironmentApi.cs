@@ -36,6 +36,8 @@ using IO.Swagger.Attributes;
 using IO.Swagger.Models;
 using Raspberry.IO.InterIntegratedCircuit;
 using Raspberry.IO.Components.Sensors.Pressure.Bmp180;
+using Raspberry.IO.Components.Sensors.Light;
+using Raspberry.IO.Components.Sensors.Humidity.Htu21df;
 
 namespace IO.Swagger.Controllers
 { 
@@ -105,14 +107,20 @@ namespace IO.Swagger.Controllers
 
             if (driver != null)
             {
-                BMP180PressureTempSensor sensor = new BMP180PressureTempSensor(driver, 0x77, BMP085Mode.UltraHighRes);
+                BMP180PressureTempSensor p_sensor = new BMP180PressureTempSensor(driver, 0x77, BMP085Mode.UltraHighRes);
+
+                //BH1750Connection l_sensor = new BH1750Connection(driver.Connect(0x40));
+
+                var ht_sensor = new Htu21dfConnection(driver.Connect(0x40));
+                ht_sensor.Begin();
 
                 tzs = new TemperatureZoneStatus
                 {
                     Id = zoneId,
-                    Name = "BMP180",
-                    TemperatureValue = sensor.ReadTemperature(),
-                    PressureValue = sensor.ReadPressure(),
+                    Name = "HTU21DF-BMP180",
+                    TemperatureValue = ht_sensor.ReadTemperature(),
+                    PressureValue = p_sensor.ReadSealevelPressure(),
+                    HumidityValue = ht_sensor.ReadHumidity(),
                     Units = TemperatureZoneStatus.UnitsEnum.CelsiusEnum,
                     Timestamp = DateTime.Now
                 };

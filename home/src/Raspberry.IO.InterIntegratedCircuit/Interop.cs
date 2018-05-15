@@ -43,6 +43,7 @@ namespace Raspberry.IO.InterIntegratedCircuit
         public const uint BCM2835_BSC_S_DONE = 0x00000002;
         public const uint BCM2835_BSC_S_TXD = 0x00000010;
         public const uint BCM2835_BSC_S_RXD = 0x00000020;
+        public const uint BCM2835_BSC_S_TA = 0x00000001; /*!< Transfer Active */
 
         public const uint BCM2835_BSC_FIFO_SIZE = 16;
 

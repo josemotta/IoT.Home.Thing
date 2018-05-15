@@ -41,7 +41,7 @@ namespace Raspberry.IO.InterIntegratedCircuit
         #endregion
 
         #region Methods
-        
+
         /// <summary>
         /// Executes the specified transaction.
         /// </summary>
