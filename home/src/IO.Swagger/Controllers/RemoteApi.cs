@@ -34,6 +34,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using IO.Swagger.Attributes;
 using IO.Swagger.Models;
+using System.Diagnostics;
 
 namespace IO.Swagger.Controllers
 { 
@@ -55,12 +56,8 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("GetRemoteCode")]
         [SwaggerResponse(200, typeof(List<string>), "All the codes")]
         public virtual IActionResult GetRemoteCode([FromRoute]string remote, [FromRoute]string code)
-        { 
-            string exampleJson = null;
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
-            : default(List<string>);
+        {
+            string example = ("/usr/bin/irsend list " + remote + " " + code).Bash();
             return new ObjectResult(example);
         }
 
@@ -76,12 +73,8 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("GetRemoteCodes")]
         [SwaggerResponse(200, typeof(List<string>), "All the codes")]
         public virtual IActionResult GetRemoteCodes([FromRoute]string remote)
-        { 
-            string exampleJson = null;
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
-            : default(List<string>);
+        {
+            string example = (@"/usr/bin/irsend list " + remote + @" """"").Bash();
             return new ObjectResult(example);
         }
 
@@ -98,12 +91,8 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("GetRemotes")]
         [SwaggerResponse(200, typeof(List<string>), "All the installed remotes")]
         public virtual IActionResult GetRemotes([FromQuery]int? skip, [FromQuery]int? limit)
-        { 
-            string exampleJson = null;
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
-            : default(List<string>);
+        {
+            string example = (@"/usr/bin/irsend list """" """"").Bash();
             return new ObjectResult(example);
         }
 
@@ -120,13 +109,34 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("SendRemoteCode")]
         [SwaggerResponse(200, typeof(ApiResponse), "response")]
         public virtual IActionResult SendRemoteCode([FromRoute]string remote, [FromRoute]string code)
-        { 
-            string exampleJson = null;
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<ApiResponse>(exampleJson)
-            : default(ApiResponse);
+        {
+            string example = (@"/usr/bin/irsend send_once " + remote + " " + code).Bash();
             return new ObjectResult(example);
+        }
+    }
+
+    // https://loune.net/2017/06/running-shell-bash-commands-in-net-core/
+    public static class ShellHelper
+    {
+        public static string Bash(this string cmd)
+        {
+            var escapedArgs = cmd.Replace("\"", "\\\"");
+
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"{escapedArgs}\"",
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                }
+            };
+            process.Start();
+            string result = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+            return result;
         }
     }
 }

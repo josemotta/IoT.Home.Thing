@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1.0-preview1-runtime-stretch-slim-arm32v7 AS base
+FROM microsoft/dotnet:2.0.7-runtime-stretch-arm32v7 AS base
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 ENV ASPNETCORE_URLS "http://*:80"
 WORKDIR /app
